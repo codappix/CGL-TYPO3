@@ -1,0 +1,28 @@
+{
+    "name": "codappix/cgl-typo3",
+    "description": "Contains PHP_CodeSniffer rules for TYPO3 that we like. Uses CGL-PHP as base rules.",
+    "type": "phpcodesniffer-standard",
+    "license": "GPL-2.0+",
+    "keywords": [
+        "phpcs",
+        "cgl",
+        "php",
+        "typo3",
+        "cms"
+    ],
+    "homepage": "https://github.com/Codappix/CGL-TYPO3",
+    "authors": [
+        {
+            "name": "Justus Moroni",
+            "email": "developer@leonmrni.com",
+            "role": "lead"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/Codappix/CGL-TYPO3/issues/",
+        "source": "https://github.com/Codappix/CGL-TYPO3/"
+    },
+    "require": {
+        "codappix/cgl-php": "^1.0"
+    }
+}
