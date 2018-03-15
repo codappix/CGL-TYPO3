@@ -23,6 +23,7 @@
         "source": "https://github.com/Codappix/CGL-TYPO3/"
     },
     "require": {
-        "codappix/cgl-php": "^1.0"
+        "codappix/cgl-php": "^1.0",
+        "typo3-ci/typo3sniffpool": "^2.1"
     }
 }
