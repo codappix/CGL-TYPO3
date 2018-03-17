@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<ruleset name="cgl-typo3">
+<ruleset name="CGL-TYPO3">
     <!-- Base rules -->
-    <rule ref="cgl-php"/>
+    <rule ref="CGL-PHP"/>
 
     <!-- Exclude third party code -->
     <exclude-pattern>*/.git/*</exclude-pattern>
