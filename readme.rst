@@ -4,8 +4,7 @@ Coding Guideline for TYPO3
 Installation
 ------------
 
-You have to require the package via composer `composer require codappix/cgl-typo3`.
-After that you have to add the following to the `composer.json`:
+You have to add the following to the `composer.json`:
 
     "scripts": {
         "post-autoload-dump": [
@@ -14,6 +13,8 @@ After that you have to add the following to the `composer.json`:
             "[ -d vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/TYPO3SniffPool ] || cp -r vendor/typo3-ci/typo3sniffpool vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/TYPO3SniffPool"
         ]
     }
+
+After that you have to require the package via composer `composer require codappix/cgl-typo3`.
 
 What does it do?
 ----------------

@@ -4,16 +4,7 @@
     <rule ref="CGL-PHP"/>
 
     <!-- Exclude third party code -->
-    <exclude-pattern>*/.git/*</exclude-pattern>
-    <exclude-pattern>*typo3/contrib/*</exclude-pattern>
-    <exclude-pattern>*typo3/sysext/adodb/adodb/*</exclude-pattern>
-    <exclude-pattern>*typo3/sysext/extbase/*</exclude-pattern>
-    <exclude-pattern>*typo3/sysext/fluid/*</exclude-pattern>
-    <exclude-pattern>*typo3/sysext/indexed_search/Classes/Utility/DoubleMetaPhoneUtility.php</exclude-pattern>
-    <exclude-pattern>*typo3/sysext/openid/lib/php-openid/*</exclude-pattern>
-    <exclude-pattern>*phpunit/Classes/Database/TestCase.php</exclude-pattern>
-    <exclude-pattern>*phpunit/Tests/*</exclude-pattern>
-    <exclude-pattern>*phpunit/Classes/Interface/AccessibleObject.php</exclude-pattern>
+    <exclude-pattern>*/typo3/*</exclude-pattern>
 
     <!-- Arrays -->
     <rule ref="Squiz.Arrays.ArrayBracketSpacing" />
@@ -33,48 +24,86 @@
     <rule ref="PEAR.Commenting.InlineComment" />
     <rule ref="../TYPO3SniffPool/Sniffs/Commenting/DoubleSlashCommentsInNewLineSniff.php" />
     <rule ref="../TYPO3SniffPool/Sniffs/Commenting/ValidCommentLineLengthSniff.php" />
-    <rule ref="../TYPO3SniffPool/Sniffs/Commenting/DocCommentSniff.php" />
+    <rule ref="../TYPO3SniffPool/Sniffs/Commenting/DocCommentSniff.php">
+        <!-- As we also can have things like @see before param, this makes no sense. -->
+        <exclude name="TYPO3SniffPool.Commenting.DocComment.ParamNotFirst" />
+        <!-- We don't force commenting methods, as it's obvious most of the time if you're using good method names. -->
+        <exclude name="TYPO3SniffPool.Commenting.DocComment.MissingShort" />
+    </rule>
+
     <rule ref="../TYPO3SniffPool/Sniffs/Commenting/FileCommentSniff.php" />
     <rule ref="TYPO3SniffPool.Commenting.FileComment">
         <exclude-pattern>ext_emconf.php</exclude-pattern>
         <exclude-pattern>ext_tables.php</exclude-pattern>
+        <exclude-pattern>ext_localconf.php</exclude-pattern>
+
+        <!-- As we use the real GNU license, perhaps we will add an own sniff. -->
+        <exclude name="TYPO3SniffPool.Commenting.FileComment.NoCopyrightFound" />
+        <!-- As we use the real GNU license, perhaps we will add an own sniff. -->
+        <exclude name="TYPO3SniffPool.Commenting.FileComment.CommentTooLong" />
     </rule>
-    <rule ref="../TYPO3SniffPool/Sniffs/Commenting/ClassCommentSniff.php" />
-    <rule ref="../TYPO3SniffPool/Sniffs/Commenting/FunctionCommentSniff.php" />
-    <rule ref="../TYPO3SniffPool/Sniffs/Commenting/NoAuthorAnnotationInFunctionDocCommentSniff.php" />
+
+    <rule ref="../TYPO3SniffPool/Sniffs/Commenting/ClassCommentSniff.php">
+        <!-- As we find authors using version control. -->
+        <exclude name="TYPO3SniffPool.Commenting.ClassComment.NoAuthorTag" />
+        <!-- We don't force commenting classes, as it's obvious most of the time if you're using good method names. -->
+        <exclude name="TYPO3SniffPool.Commenting.ClassComment.Missing" />
+    </rule>
+    <!--
+         As TYPO3 will first check style and then missing ... we have to use this
+         We don't add comments to repositories, as it's obvious what they are doing.
+    -->
+    <rule ref="TYPO3SniffPool.Commenting.ClassComment.WrongStyle">
+        <exclude-pattern>*Classes/Domain/Repository/*Repository.php</exclude-pattern>
+        <exclude-pattern>**/Migration/Model/**</exclude-pattern>
+    </rule>
+
+    <rule ref="../TYPO3SniffPool/Sniffs/Commenting/FunctionCommentSniff.php">
+        <!-- Not necessary for obvious parameters, we use PHP 7.x type hints. -->
+        <exclude name="TYPO3SniffPool.Commenting.FunctionComment.MissingParamTag" />
+        <!-- We don't force commenting parameter, as it's obvious most of the time if you're using good variable names. -->
+        <exclude name="TYPO3SniffPool.Commenting.FunctionComment.MissingParamComment" />
+        <exclude name="TYPO3SniffPool.Commenting.FunctionComment.InvalidTypeHint" />
+        <!-- As we make use of PHP TypeHints. Also not all methods have a return. -->
+        <exclude name="TYPO3SniffPool.Commenting.FunctionComment.MissingReturn" />
+        <exclude name="TYPO3SniffPool.Commenting.FunctionComment.Missing" />
+    </rule>
+
     <rule ref="Squiz.Commenting.DocCommentAlignment" />
 
     <!-- Control structures -->
     <rule ref="Generic.ControlStructures.InlineControlStructure" />
     <rule ref="Squiz.ControlStructures.ControlSignature" />
     <rule ref="../TYPO3SniffPool/Sniffs/ControlStructures/DisallowElseIfConstructSniff.php" />
-    <rule ref="../TYPO3SniffPool/Sniffs/ControlStructures/AlignedBreakStatementSniff.php" />
     <rule ref="../TYPO3SniffPool/Sniffs/ControlStructures/DisallowEachInLoopConditionSniff.php" />
     <rule ref="../TYPO3SniffPool/Sniffs/ControlStructures/UnusedVariableInForEachLoopSniff.php" />
     <rule ref="../TYPO3SniffPool/Sniffs/ControlStructures/ExtraBracesByAssignmentInLoopSniff.php" />
-    <rule ref="../TYPO3SniffPool/Sniffs/ControlStructures/SwitchDeclarationSniff.php" />
-    <rule ref="../TYPO3SniffPool/Sniffs/ControlStructures/TernaryConditionalOperatorSniff.php" />
 
     <!-- Debug -->
-    <rule ref="../TYPO3SniffPool/Sniffs/Debug/DebugCodeSniff.php">
-        <exclude-pattern>*typo3/sysext/core/Classes/Utility/DebugUtility.php</exclude-pattern>
-    </rule>
+    <rule ref="../TYPO3SniffPool/Sniffs/Debug/DebugCodeSniff.php" />
 
     <!-- Files -->
-    <rule ref="Generic.Files.OneClassPerFile">
-        <exclude-pattern>*typo3/sysext/core/Migrations/Code/LegacyClassesForIde.php</exclude-pattern>
-    </rule>
+    <rule ref="Generic.Files.OneClassPerFile" />
     <rule ref="Generic.Files.OneInterfacePerFile" />
     <rule ref="Generic.Files.ByteOrderMark" />
     <rule ref="Generic.Files.LineEndings" />
-    <rule ref="Generic.Files.LineLength">
-        <properties>
-            <property name="lineLimit" value="130"/>
-            <property name="absoluteLineLimit" value="200"/>
-        </properties>
-    </rule>
+    <rule ref="Generic.Files.LineLength" />
     <rule ref="../TYPO3SniffPool/Sniffs/Files/IncludingFileSniff.php" />
-    <rule ref="../TYPO3SniffPool/Sniffs/Files/FilenameSniff.php" />
+    <rule ref="../TYPO3SniffPool/Sniffs/Files/FilenameSniff.php">
+        <exclude-pattern>ext_emconf.php</exclude-pattern>
+        <exclude-pattern>ext_tables.php</exclude-pattern>
+        <exclude-pattern>ext_localconf.php</exclude-pattern>
+        <exclude-pattern>**/Configuration/**</exclude-pattern>
+        <exclude-pattern>**/typo3conf/AdditionalConfiguration.php</exclude-pattern>
+    </rule>
+    <rule ref="TYPO3SniffPool.Files.Filename.Non-ClassFileFound">
+        <exclude-pattern>ext_emconf.php</exclude-pattern>
+        <exclude-pattern>ext_tables.php</exclude-pattern>
+        <exclude-pattern>ext_localconf.php</exclude-pattern>
+        <exclude-pattern>**/Configuration/**</exclude-pattern>
+        <exclude-pattern>**/typo3conf/AdditionalConfiguration.php</exclude-pattern>
+    </rule>
+
     <rule ref="../TYPO3SniffPool/Sniffs/Files/FileExtensionSniff.php" />
     <rule ref="Zend.Files.ClosingTag" />
 
@@ -83,7 +112,6 @@
 
     <!-- Functions -->
     <rule ref="Generic.Functions.FunctionCallArgumentSpacing" />
-    <rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie" />
 
     <!-- Loops -->
 
@@ -101,18 +129,16 @@
     <rule ref="Generic.PHP.DisallowShortOpenTag" />
     <rule ref="Squiz.PHP.NonExecutableCode" />
     <rule ref="../TYPO3SniffPool/Sniffs/PHP/DisallowMultiplePHPTagsSniff.php" />
-    <rule ref="Generic.PHP.UpperCaseConstant" />
-    <rule ref="Generic.PHP.DeprecatedFunctions" />
-    <rule ref="Squiz.PHP.Eval">
-        <exclude-pattern>*/tests/*</exclude-pattern>
-        <exclude-pattern>*typo3/sysext/install/Classes/CoreUpdates/LocalConfigurationUpdate.php</exclude-pattern>
+    <rule ref="Generic.PHP.UpperCaseConstant">
+        <exclude name="Generic.PHP.UpperCaseConstant.Found" />
     </rule>
+    <rule ref="Generic.PHP.DeprecatedFunctions" />
+    <rule ref="Squiz.PHP.Eval" />
     <rule ref="Squiz.PHP.GlobalKeyword" />
 
     <!-- Scope -->
     <rule ref="Squiz.Scope.MemberVarScope" />
     <rule ref="Squiz.Scope.MethodScope" />
-    <!--<rule ref="../TYPO3SniffPool/Sniffs/Scope/AlwaysReturnSniff.php" />-->
 
     <!-- Strings -->
     <rule ref="../TYPO3SniffPool/Sniffs/Strings/UnnecessaryStringConcatSniff.php" />
@@ -124,14 +150,13 @@
     <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace" />
     <rule ref="Squiz.WhiteSpace.OperatorSpacing" />
     <rule ref="../TYPO3SniffPool/Sniffs/WhiteSpace/NoWhitespaceAtInDecrementSniff.php" />
-    <rule ref="../TYPO3SniffPool/Sniffs/WhiteSpace/DisallowSpaceIndentSniff.php" />
-    <!--<rule ref="Generic.WhiteSpace.DisallowSpaceIndentSniff.php" />-->
-    <rule ref="../TYPO3SniffPool/Sniffs/WhiteSpace/ScopeClosingBraceSniff.php" />
-    <!--
-        @todo merge this two sniffs into one
-        Have a look at the wiki page for more informations
-    <rule ref="TYPO3SniffPool.Whitespace.WhitespaceAfterCommentSigns" />
-    <rule ref="TYPO3SniffPool.Commenting.SpaceAfterDoubleSlash" />
-    -->
+    <rule ref="../TYPO3SniffPool/Sniffs/WhiteSpace/ScopeClosingBraceSniff.php">
+        <!-- As it looks like the sniff doesn't work correctly. -->
+        <exclude name="TYPO3SniffPool.WhiteSpace.ScopeClosingBrace.BreakIdent" />
+    </rule>
     <rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing" />
+
+    <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
+        <exclude-pattern>**/Tests/**/Bootstrap.php</exclude-pattern>
+    </rule>
 </ruleset>
