@@ -102,6 +102,7 @@
         <exclude-pattern>ext_localconf.php</exclude-pattern>
         <exclude-pattern>**/Configuration/**</exclude-pattern>
         <exclude-pattern>**/typo3conf/AdditionalConfiguration.php</exclude-pattern>
+        <exclude-pattern>**/*Trait.php</exclude-pattern>
     </rule>
 
     <rule ref="../TYPO3SniffPool/Sniffs/Files/FileExtensionSniff.php" />
