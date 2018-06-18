@@ -94,14 +94,14 @@
         <exclude-pattern>ext_tables.php</exclude-pattern>
         <exclude-pattern>ext_localconf.php</exclude-pattern>
         <exclude-pattern>**/Configuration/**</exclude-pattern>
-        <exclude-pattern>**/typo3conf/AdditionalConfiguration.php</exclude-pattern>
+        <exclude-pattern>**/typo3conf/AdditionalConfiguration.*</exclude-pattern>
     </rule>
     <rule ref="TYPO3SniffPool.Files.Filename.Non-ClassFileFound">
         <exclude-pattern>ext_emconf.php</exclude-pattern>
         <exclude-pattern>ext_tables.php</exclude-pattern>
         <exclude-pattern>ext_localconf.php</exclude-pattern>
         <exclude-pattern>**/Configuration/**</exclude-pattern>
-        <exclude-pattern>**/typo3conf/AdditionalConfiguration.php</exclude-pattern>
+        <exclude-pattern>**/typo3conf/AdditionalConfiguration.*</exclude-pattern>
         <exclude-pattern>**/*Trait.php</exclude-pattern>
     </rule>
 
