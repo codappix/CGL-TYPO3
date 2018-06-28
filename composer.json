@@ -23,7 +23,17 @@
         "source": "https://github.com/Codappix/CGL-TYPO3/"
     },
     "require": {
-        "codappix/cgl-php": "^1.0",
-        "typo3-ci/typo3sniffpool": "^2.1"
+        "codappix/cgl-php": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Codappix\\CglTypo3\\Sniffs\\": "Sniffs/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "[ -e vendor/codappix/CGL-PHP ] || ln -s cgl-php vendor/codappix/CGL-PHP",
+            "./vendor/bin/phpcs  --config-set installed_paths $PWD/vendor/codappix"
+        ]
     }
 }
