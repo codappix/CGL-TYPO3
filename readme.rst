@@ -6,12 +6,14 @@ This standard is named `CglTypo3` within PHP Code Sniffer.
 Installation
 ------------
 
-You have to add the following to the `composer.json`:
+There are different ways, we use the following.
+
+Add the following to the `composer.json`:
 
     "scripts": {
         "post-autoload-dump": [
-            "[ -d vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/CGL-PHP ] || cp -r vendor/codappix/cgl-php vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/CGL-PHP",
-            "[ -d vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/CGL-TYPO3 ] || cp -r vendor/codappix/cgl-typo3 vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/CglTypo3",
+            "[ -e vendor/codappix/CGL-TYPO3 ] || ln -s CglTypo3 vendor/codappix/CGL-TYPO3",
+            "./vendor/bin/phpcs --config-set installed_paths $PWD/vendor/codappix"
         ]
     }
 
