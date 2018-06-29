@@ -1,0 +1,13 @@
+language: php
+
+php:
+    - 7.0
+    - 7.1
+    - 7.2
+
+install:
+    - composer install
+
+script:
+    - for file in $(find CglTypo3/ -name \*.php); do php -l $file > /dev/null; done;
+    - ./vendor/bin/phpcs
