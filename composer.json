@@ -35,5 +35,10 @@
     },
     "suggest": {
         "dealerdirect/phpcodesniffer-composer-installer": "Auto-installs the standard to phpcs."
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "3.0.x-dev"
+        }
     }
 }
