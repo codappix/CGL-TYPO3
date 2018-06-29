@@ -22,18 +22,18 @@
         "issues": "https://github.com/Codappix/CGL-TYPO3/issues/",
         "source": "https://github.com/Codappix/CGL-TYPO3/"
     },
-    "require": {
-        "codappix/cgl-php": "^1.0"
-    },
     "autoload": {
         "psr-4": {
-            "Codappix\\CglTypo3\\Sniffs\\": "Sniffs/"
+            "Codappix\\CDXTYPO3\\": "CDXTYPO3/"
         }
     },
-    "scripts": {
-        "post-autoload-dump": [
-            "[ -e vendor/codappix/CGL-PHP ] || ln -s cgl-php vendor/codappix/CGL-PHP",
-            "./vendor/bin/phpcs  --config-set installed_paths $PWD/vendor/codappix"
-        ]
+    "require": {
+        "codappix/cgl-php": "dev-feature/support-installation-via-plugin as 1.0.x-dev"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.4.4"
+    },
+    "suggest": {
+        "dealerdirect/phpcodesniffer-composer-installer": "Auto installes the standard to phpcs."
     }
 }

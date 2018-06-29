@@ -1,5 +1,5 @@
 <?php
-namespace Codappix\CglTypo3\Sniffs\Classes;
+namespace Codappix\CDXTYPO3\Sniffs\Classes;
 
 use PHP_CodeSniffer\Standards\Squiz\Sniffs\Classes\LowercaseClassKeywordsSniff as PhpCsLowercaseClassKeywordsSniff;
 

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <ruleset name="Project">
-    <file>./Sniffs</file>
+    <file>./CDXTYPO3</file>
 
-    <rule ref="CGL-PHP" />
+    <rule ref="CDXPHP" />
 </ruleset>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<ruleset name="CglTypo3">
+<ruleset name="CDXTYPO3">
     <!-- Base rules -->
-    <rule ref="CGL-PHP"/>
+    <rule ref="CDXPHP"/>
 
     <!-- Exclude third party code -->
     <exclude-pattern>*/typo3/*</exclude-pattern>

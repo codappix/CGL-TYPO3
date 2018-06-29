@@ -1,5 +1,5 @@
 <?php
-namespace Codappix\CglTypo3\Sniffs\Debug;
+namespace Codappix\CDXTYPO3\Sniffs\Debug;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;

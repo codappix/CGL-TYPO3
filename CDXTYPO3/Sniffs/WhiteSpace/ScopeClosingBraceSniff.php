@@ -1,5 +1,5 @@
 <?php
-namespace Codappix\CglTypo3\Sniffs\WhiteSpace;
+namespace Codappix\CDXTYPO3\Sniffs\WhiteSpace;
 
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Sniffs\Sniff;

@@ -9,5 +9,5 @@ install:
     - composer install
 
 script:
-    - for file in $(find Sniffs/ -name \*.php); do php -l $file > /dev/null; done;
+    - for file in $(find CglTypo3/ -name \*.php); do php -l $file > /dev/null; done;
     - ./vendor/bin/phpcs
