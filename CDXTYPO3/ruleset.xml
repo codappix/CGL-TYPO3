@@ -4,7 +4,7 @@
     <rule ref="CDXPHP"/>
 
     <!-- Exclude third party code -->
-    <exclude-pattern>*/typo3/*</exclude-pattern>
+    <exclude-pattern type="relative">*/typo3/*</exclude-pattern>
 
     <!-- Arrays -->
     <rule ref="Squiz.Arrays.ArrayBracketSpacing" />
