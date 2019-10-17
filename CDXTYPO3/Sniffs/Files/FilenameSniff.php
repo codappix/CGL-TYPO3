@@ -17,6 +17,7 @@ class FilenameSniff implements Sniff
         $findTokens = [
             T_CLASS,
             T_INTERFACE,
+            T_TRAIT
         ];
 
         $stackPtr = $phpcsFile->findNext($findTokens, ($stackPtr + 1));

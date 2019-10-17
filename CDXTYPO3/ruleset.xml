@@ -46,7 +46,6 @@
         <exclude-pattern>ext_localconf.php</exclude-pattern>
         <exclude-pattern>**/Configuration/**</exclude-pattern>
         <exclude-pattern>**/typo3conf/AdditionalConfiguration.*</exclude-pattern>
-        <exclude-pattern>**/*Trait.php</exclude-pattern>
     </rule>
 
     <rule ref="Zend.Files.ClosingTag" />
