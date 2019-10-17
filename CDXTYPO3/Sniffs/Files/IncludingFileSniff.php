@@ -30,17 +30,17 @@ class IncludingFileSniff implements Sniff
 
                 $error  = 'Including files with "' . $keyword . '" is not allowed; ';
                 $error .= 'use "require_once" instead';
-                $phpcsFile->addError($error, $stackPtr);
+                $phpcsFile->addError($error, $stackPtr, 'IncludeOnceShouldBeRequireOnce');
                 break;
             case 'T_REQUIRE':
                 $error  = 'Including files with "' . $keyword . '" is not allowed; ';
                 $error .= 'use "require_once" instead';
-                $phpcsFile->addError($error, $stackPtr);
+                $phpcsFile->addError($error, $stackPtr, 'RequireShouldBeRequireOnce');
                 break;
             case 'T_INCLUDE':
                 $error  = 'Including files with "' . $keyword . '" is not allowed; ';
                 $error .= 'use "require_once" instead';
-                $phpcsFile->addError($error, $stackPtr);
+                $phpcsFile->addError($error, $stackPtr, 'IncludeShouldBeRequireOnce');
                 break;
             default:
         }
