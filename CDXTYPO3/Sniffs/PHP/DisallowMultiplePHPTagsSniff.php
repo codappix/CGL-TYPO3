@@ -20,7 +20,7 @@ class DisallowMultiplePHPTagsSniff implements Sniff
         $disallowTag = $phpcsFile->findNext($tokens[$stackPtr]['code'], ($stackPtr + 1));
         if (false !== $disallowTag) {
             $error = 'Exactly one "' . $tokens[$stackPtr]['content'] . '" tag is allowed';
-            $phpcsFile->addError($error, $disallowTag);
+            $phpcsFile->addError($error, $disallowTag, 'MultiplePHPTagsFound');
         }
 
         return;
